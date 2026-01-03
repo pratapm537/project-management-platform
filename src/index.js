@@ -15,7 +15,7 @@ connectDB()
 })
 )
 .catch((err) => {
-    console.lor("connection error ", err)
+    console.log("connection error ", err)
 })
 
 
