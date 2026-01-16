@@ -21,3 +21,4 @@ const healthCheck = asyncHandler(async(req,res) => {
 })
 
 export {healthCheck}
+

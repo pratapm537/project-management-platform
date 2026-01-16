@@ -33,5 +33,4 @@ app.get('/course',(req,res) => {
     res.send("<h1>Welcome to -Course</h1>")
 })
 
-
 export default app;
