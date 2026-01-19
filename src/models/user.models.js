@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken"
 import crypto from "crypto" //no need to install form express coz it is node module
 
 
+
 const userSchema = new Schema(
     {
         avatar: {
@@ -61,6 +62,7 @@ const userSchema = new Schema(
         timestamps: true //create at date & updated at date
     }
 )
+
 
 userSchema.pre("save", async function (next) {
     if(!this.isModified("password")) return next()
