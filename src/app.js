@@ -18,8 +18,11 @@ app.use(cors({
 
 // import the routes
 import healthCheckRoute from './routes/healthcheck.routes.js'
+import authRouter from "./routes/auth.routes.js"
 
 app.use("/api/v1/healthcheck", healthCheckRoute)
+app.use("/api/vi/auth", authRouter)
+
 
 app.get('/',(req,res) => {
     res.send("<h1>Welcome to -Home</h1>")

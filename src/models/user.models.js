@@ -9,11 +9,11 @@ const userSchema = new Schema(
     {
         avatar: {
             type: String,
-            localPath: String
-        },
-        default: {
-            url: `https://placehold.co/200*200`,
-            localPath: ""
+            localPath: String,
+            default: {
+                url: `https://placehold.co/200*200`,
+                localPath: "",
+            }
         },
         username: {
             type: String,
@@ -73,7 +73,7 @@ userSchema.pre("save", async function (next) {
 
 //compare entred password with stored password
 //return true if both match, else false
-userSchema.method.isPasswordCorrect = async function (password) {
+userSchema.methods.isPasswordCorrect = async function (password) {
     return await bcrypt.compare(password, this.password)
 }
 
@@ -103,11 +103,11 @@ userSchema.methods.generateTemporaryToken = function() {
     const unHashedToken = crypto.randomBytes(20).toString("hex")
 
     const hashedToken = crypto
-        .createHash("SHA256")
+        .createHash("sha256")
         .update(unHashedToken)
         .digest("hex")
 
-    const tokenExpiry = Date.now() + (20*60*1000) //20min
+    const tokenExpiry = Date.now() + 20*60*1000 //20min
     return(unHashedToken, hashedToken, tokenExpiry)
 }
 
